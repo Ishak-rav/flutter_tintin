@@ -13,8 +13,7 @@ Une application Flutter simple pour afficher et explorer les albums de Tintin. L
 1. Clonez le dépôt :
 
 ```sh
-git clone https://github.com/votre-utilisateur/tintin-albums.git
-cd tintin-albums
+git clone https://github.com/Ishak-rav/flutter_tintin.git
 ```
 
 2. Installez les dépendances :
