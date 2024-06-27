@@ -1,45 +1,28 @@
-// lib/models/album.dart
 class Album {
-  final String title;
   final int numero;
-  final int year;
-  final int? yearInColor;
+  final String titre;
+  final int parution;
   final String image;
+  final int? parutionEnCouleur;
   final String resume;
 
   Album({
-    required this.title,
     required this.numero,
-    required this.year,
-    this.yearInColor,
+    required this.titre,
+    required this.parution,
     required this.image,
     required this.resume,
+    this.parutionEnCouleur,
   });
-
-  @override
-  String toString() {
-    return 'Album{title: $title, numero: $numero, year: $year, yearInColor: $yearInColor, image: $image, resume: $resume}';
-  }
-
-  Map<String, dynamic> toJson() {
-    return {
-      'title': title,
-      'numero': numero,
-      'year': year,
-      'yearInColor': yearInColor,
-      'image': image,
-      'resume': resume,
-    };
-  }
 
   factory Album.fromJson(Map<String, dynamic> json) {
     return Album(
-      title: json['titre'],
-      numero: json['numero'],
-      year: json['parution'],
-      yearInColor: json['parutionEnCouleur'],
-      image: json['image'],
-      resume: json['resume'],
+      numero: json['numero'] ?? 0,
+      titre: json['titre'] ?? 'Titre inconnu',
+      parution: json['parution'] ?? 0,
+      image: json['image'] ?? 'assets/images/default_cover.jpg',
+      resume: json['resume'] ?? 'Résumé non disponible',
+      parutionEnCouleur: json['parutionEnCouleur'],
     );
   }
 }

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../models/album.dart';
+import 'package:tintin/models/album.dart';
 
 class ReadingListProvider extends ChangeNotifier {
   final List<Album> _readingList = [];

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import '../models/album.dart';
-import '../services/album_service.dart';
-import '../widgets/album_preview.dart';
+import 'package:tintin/models/album.dart';
+import 'package:tintin/screens/album_details.dart';
+import 'package:tintin/widgets/album_preview.dart';
+import 'package:tintin/services/album_service.dart';
+import 'package:tintin/screens/reading_list_screen.dart';
 
 class AlbumsMaster extends StatelessWidget {
   const AlbumsMaster({super.key});
@@ -11,7 +13,19 @@ class AlbumsMaster extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Albums de Tintin'),
-        backgroundColor: Colors.red,
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.list),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const ReadingListScreen(),
+                ),
+              );
+            },
+          ),
+        ],
       ),
       body: FutureBuilder<List<Album>>(
         future: AlbumService.fetchAlbums(),
@@ -31,7 +45,18 @@ class AlbumsMaster extends StatelessWidget {
             return ListView.builder(
               itemCount: albums.length,
               itemBuilder: (context, index) {
-                return AlbumPreview(album: albums[index]);
+                return AlbumPreview(
+                  album: albums[index],
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) =>
+                            AlbumDetails(album: albums[index]),
+                      ),
+                    );
+                  },
+                );
               },
             );
           }

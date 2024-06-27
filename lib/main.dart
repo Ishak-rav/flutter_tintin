@@ -22,8 +22,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.red,
         appBarTheme: const AppBarTheme(
-          backgroundColor:
-              Colors.red, // Mettre en rouge le bandeau d'en-tête par défaut
+          backgroundColor: Colors.red,
         ),
         textTheme: const TextTheme(
           titleLarge: TextStyle(
@@ -31,7 +30,7 @@ class MyApp extends StatelessWidget {
           bodyLarge: TextStyle(fontSize: 18.0, color: Colors.white),
           bodyMedium: TextStyle(fontSize: 16.0, color: Colors.white),
         ),
-        scaffoldBackgroundColor: Colors.black87, // Couleur de fond
+        scaffoldBackgroundColor: Colors.black87,
       ),
       home: const AlbumsMaster(),
     );
