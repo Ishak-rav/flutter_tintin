@@ -9,7 +9,6 @@ class AlbumService {
       final List<dynamic> data = json.decode(response);
       return data.map((json) => Album.fromJson(json)).toList();
     } catch (e) {
-      print('Erreur lors du chargement des albums: $e');
       return [];
     }
   }
